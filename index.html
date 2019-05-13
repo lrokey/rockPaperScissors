@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<body>
+    <script>
+        function computerPlay() {
+            let compPlay = "";
+            let x = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+            if (x == 1) {
+                compPlay = "rock";
+            } else if (x == 2) {
+                compPlay = "paper";
+            } else if (x == 3) {
+                compPlay = "scissors";
+            }
+            console.log("Computer played: " + compPlay);
+            return compPlay;
+        }
+
+        function playRound(playerSelection, computerSelection) {
+
+            let msg = "This will change";
+            const playerSelectionLC = playerSelection.toLowerCase();
+            console.log("You played: " + playerSelectionLC);
+            if (playerSelectionLC == computerSelection) {
+                msg = "Tie!";
+            } else if (playerSelectionLC == "rock" && computerSelection == "paper") {
+                msg = "You lose! Paper beats rock";
+            } else if (playerSelectionLC == "paper" && computerSelection == "rock") {
+                msg = "You win! Paper beats rock";
+            } else if (playerSelectionLC == "scissors" && computerSelection == "paper") {
+                msg = "You win! Scissors beats paper";
+            } else if (playerSelectionLC == "paper" && computerSelection == "scissors") {
+                msg = "You lose! Scissors beats paper";
+            } else if (playerSelectionLC == "scissors" && computerSelection == "rock") {
+                msg = "You lose! Rock beats scissors";
+            } else if (playerSelectionLC == "rock" && computerSelection == "scissors") {
+                msg = "You win! Rock beats scissors";
+            }
+            return msg;
+        }
+
+        function game(numRounds) {
+            let player;
+            let comp;
+
+            while (numRounds) {
+                player = prompt("Rock, Paper, Scissors?");
+                comp = computerPlay();
+                console.log(playRound(player, comp));
+                numRounds--;
+            }
+        }
+    </script>
+</body>
+
+</html>
